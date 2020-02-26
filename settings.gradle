@@ -1,0 +1,4 @@
+rootProject.name='Publish It'
+include ':app'
+include ':publishmylib'
+include ':publishmykotlinlib'
