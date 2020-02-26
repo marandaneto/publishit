@@ -12,7 +12,7 @@ java {
 ```
 
 # module publishmylib
-It's an Android lib that runs Java and Kotlin code, it uses the built-in `release` component from AGP 3.6.x, but it turns out that generating Javadocs and Sources is still verbose.
+It's an Android lib that runs Java and Kotlin code, it uses the built-in `release` component from AGP 3.6.x.
 
 ```groovy
 from components.release
@@ -28,7 +28,7 @@ android {
 }
 ```
 
-as you can see, it's still necessary some boilerplate code:
+as you can see, generating Javadocs and Sources is still verbose and it requires some boilerplate code:
 
 ```groovy
 // needed because: throwing: javadoc: error - Illegal package name
