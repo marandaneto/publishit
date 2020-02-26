@@ -39,18 +39,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
+// needed because: throwing: javadoc: error - Illegal package name
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
 task androidJavadocs(type: Javadoc) {
     source = android.sourceSets.main.java.source
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-//    because:
-//    if (JavaVersion.current().isJava8Compatible()) {
-//        options.addStringOption('Xdoclint:none', '-quiet')
-//    }
-//    was throwing: javadoc: error - Illegal package name
-tasks.withType(Javadoc).all {
-    enabled = false
 }
 
 task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
@@ -101,7 +97,6 @@ afterEvaluate {
                 }
 
                 from components.release
-                androidSourcesJar
             }
         }
         repositories {
